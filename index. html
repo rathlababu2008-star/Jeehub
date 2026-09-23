@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JEEHub | JEE PYQs</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#0b1020;color:#fff}
+header{padding:22px 18px;background:linear-gradient(135deg,#2563eb,#7c3aed)}
+header h1{margin:0;font-size:28px}header p{margin:7px 0;color:#dbeafe}
+main{padding:18px;max-width:700px;margin:auto}
+.search{width:100%;padding:14px;border:0;border-radius:14px;font-size:16px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{padding:20px;border-radius:18px;background:#151c31;border:1px solid #273352;
+cursor:pointer;transition:.2s}.card:active{transform:scale(.97)}
+.card b{font-size:18px}.card span{display:block;margin-top:8px;color:#9ca3af}
+h2{margin:24px 0 12px}.years button,.actions button{
+padding:12px;margin:5px;border:0;border-radius:12px;background:#2563eb;color:white;font-weight:bold}
+#msg{margin-top:18px;padding:18px;background:#151c31;border-radius:16px;display:none}
+footer{text-align:center;color:#64748b;padding:25px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🚀 JEEHub</h1>
+<p>JEE Main PYQs • Practice • Revision</p>
+</header>
+
+<main>
+<input class="search" id="search" placeholder="🔍 Search Physics, Chemistry, Maths...">
+
+<h2>📚 Subjects</h2>
+<div class="grid">
+<div class="card" onclick="openSub('Physics')">⚡ <b>Physics</b><span>PYQs & Concepts</span></div>
+<div class="card" onclick="openSub('Chemistry')">🧪 <b>Chemistry</b><span>PYQs & Concepts</span></div>
+<div class="card" onclick="openSub('Mathematics')">📐 <b>Mathematics</b><span>PYQs & Concepts</span></div>
+<div class="card" onclick="openSub('Formulas')">🧠 <b>Formulas</b><span>Quick Revision</span></div>
+</div>
+
+<h2>📅 PYQ Years</h2>
+<div class="years">
+<button onclick="openYear(2026)">2026</button>
+<button onclick="openYear(2025)">2025</button>
+<button onclick="openYear(2024)">2024</button>
+<button onclick="openYear(2023)">2023</button>
+</div>
+
+<h2>🎯 Practice</h2>
+<div class="actions">
+<button onclick="openSub('Daily Practice')">🔥 Daily Practice</button>
+<button onclick="openSub('Progress')">📊 My Progress</button>
+<button onclick="openSub('Bookmarks')">🔖 Bookmarks</button>
+</div>
+
+<div id="msg"></div>
+</main>
+
+<footer>JEEHub • Learn Smart • Practice Daily</footer>
+
+<script>
+const msg=document.getElementById("msg");
+function show(x){msg.style.display="block";msg.innerHTML="<h3>"+x+"</h3><p>Content will be added next 🚀</p>"}
+function openSub(x){show(x)}
+function openYear(x){show(x+" JEE PYQs")}
+document.getElementById("search").oninput=e=>{
+let q=e.target.value.toLowerCase();
+document.querySelectorAll(".card").forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(q)?"block":"none"
+})}
+</script>
+</body>
+</html>
